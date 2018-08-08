@@ -1,0 +1,10 @@
+vcl 4.0;
+
+backend default {
+    .host = "$WEB_SERVER_HOST";
+    .port = "$WEB_SERVER_PORT";
+}
+
+sub vcl_recv {
+    return(pass);
+}
