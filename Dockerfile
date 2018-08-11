@@ -11,14 +11,10 @@ ENV WEB_SERVER_HOST=localhost \
 
 RUN set -x \
     && apk update \
-    && apk add --no-cache --virtual .build-deps \
-        gcc \
-        gettext \
-        libc-dev \
-        musl-dev \
     && apk add -u --no-cache \
         openssl-dev \
         varnish \
+    && apk add --no-cache --virtual .gettext gettext \
     && mv /usr/bin/envsubst /tmp/ \
     && runDeps="$( \
         scanelf --needed --nobanner --format '%n#p' /tmp/envsubst \
@@ -27,7 +23,7 @@ RUN set -x \
             | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
     )" \
     && apk add --no-cache --virtual .rundeps $runDeps \
-    && apk del .build-deps \
+    && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/
 
 COPY config/default.vcl.template /etc/varnish/
