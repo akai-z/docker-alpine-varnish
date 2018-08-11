@@ -2,7 +2,9 @@ FROM alpine:latest
 
 LABEL maintainer="Ammar K."
 
-ENV WEB_SERVER_HOST=localhost \
+ENV VARNISH_LISTEN_ADDRESS="" \
+    VARNISH_LISTEN_PORT=8080 \
+    WEB_SERVER_HOST=localhost \
     WEB_SERVER_PORT=8080 \
     VARNISH_ADMIN_LISTEN_ADDRESS=localhost \
     VARNISH_ADMIN_LISTEN_PORT=6082 \
@@ -28,7 +30,7 @@ RUN set -x \
 
 COPY config/default.vcl.template /etc/varnish/
 
-EXPOSE $WEB_SERVER_PORT
+EXPOSE $VARNISH_LISTEN_PORT
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
