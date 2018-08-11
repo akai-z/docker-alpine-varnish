@@ -32,6 +32,6 @@ COPY config/default.vcl.template /etc/varnish/
 
 EXPOSE $VARNISH_LISTEN_PORT
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
-ENTRYPOINT ["docker-entrypoint.sh"]
+COPY docker-run.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-run.sh / # backward compatibility
+ENTRYPOINT ["docker-run.sh"]
