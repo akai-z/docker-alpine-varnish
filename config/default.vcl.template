@@ -1,8 +1,8 @@
 vcl 4.0;
 
 backend default {
-    .host = "$WEB_SERVER_HOST";
-    .port = "$WEB_SERVER_PORT";
+    .host = "$BACKEND_DEFAULT_HOST";
+    .port = "$BACKEND_DEFAULT_PORT";
 }
 
 sub vcl_recv {
