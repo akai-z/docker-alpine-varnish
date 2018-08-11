@@ -34,4 +34,4 @@ EXPOSE $VARNISH_LISTEN_PORT
 
 COPY docker-run.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-run.sh / # backward compatibility
-ENTRYPOINT ["docker-run.sh"]
+CMD ["docker-run.sh"]
