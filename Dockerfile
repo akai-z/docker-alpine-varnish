@@ -4,12 +4,15 @@ LABEL maintainer="Ammar K."
 
 ENV VARNISH_LISTEN_ADDRESS="" \
     VARNISH_LISTEN_PORT=8080 \
-    BACKEND_DEFAULT_HOST=localhost \
-    BACKEND_DEFAULT_PORT=8080 \
     VARNISH_MANAGEMENT_LISTEN_ADDRESS=localhost \
     VARNISH_MANAGEMENT_LISTEN_PORT=6082 \
+    BACKEND_DEFAULT_HOST=localhost \
+    BACKEND_DEFAULT_PORT=8080 \
     VSL_RECLEN=255 \
     MALLOC=256m
+
+COPY config/default.vcl.template /etc/varnish/
+COPY docker-run.sh /usr/local/bin/
 
 RUN set -x \
     && apk update \
@@ -26,12 +29,8 @@ RUN set -x \
     )" \
     && apk add --no-cache --virtual .rundeps $runDeps \
     && apk del .gettext \
-    && mv /tmp/envsubst /usr/local/bin/
-
-COPY config/default.vcl.template /etc/varnish/
+    && mv /tmp/envsubst /usr/local/bin/ \
+    && ln -s usr/local/bin/docker-run.sh / # backward compatibility
 
 EXPOSE $VARNISH_LISTEN_PORT
-
-COPY docker-run.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-run.sh / # backward compatibility
 CMD ["docker-run.sh"]
