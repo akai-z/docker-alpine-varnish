@@ -12,7 +12,7 @@ ENV LISTEN_ADDRESS="" \
     MALLOC=256m
 
 COPY config/default.vcl.template /etc/varnish/
-COPY docker-run.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN set -x \
     && apk update \
@@ -30,7 +30,9 @@ RUN set -x \
     && apk add --no-cache --virtual .rundeps $runDeps \
     && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/ \
-    && ln -s usr/local/bin/docker-run.sh / # backward compatibility
+    && ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
+
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE $LISTEN_PORT
-CMD ["docker-run.sh"]
+CMD ["varnishd"]
