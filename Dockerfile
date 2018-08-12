@@ -2,10 +2,10 @@ FROM alpine:latest
 
 LABEL maintainer="Ammar K."
 
-ENV VARNISH_LISTEN_ADDRESS="" \
-    VARNISH_LISTEN_PORT=8080 \
-    VARNISH_MANAGEMENT_INTERFACE_ADDRESS=localhost \
-    VARNISH_MANAGEMENT_INTERFACE_PORT=6082 \
+ENV LISTEN_ADDRESS="" \
+    LISTEN_PORT=8080 \
+    MANAGEMENT_INTERFACE_ADDRESS=localhost \
+    MANAGEMENT_INTERFACE_PORT=6082 \
     BACKEND_DEFAULT_HOST=localhost \
     BACKEND_DEFAULT_PORT=8080 \
     VSL_RECLEN=255 \
@@ -32,5 +32,5 @@ RUN set -x \
     && mv /tmp/envsubst /usr/local/bin/ \
     && ln -s usr/local/bin/docker-run.sh / # backward compatibility
 
-EXPOSE $VARNISH_LISTEN_PORT
+EXPOSE $LISTEN_PORT
 CMD ["docker-run.sh"]

@@ -4,8 +4,8 @@ set -eo pipefail
 
 envsubst < /etc/varnish/default.vcl.template > /etc/varnish/default.vcl
 
-varnishd -a $VARNISH_LISTEN_ADDRESS:$VARNISH_LISTEN_PORT \
-  -T $VARNISH_MANAGEMENT_INTERFACE_ADDRESS:$VARNISH_MANAGEMENT_INTERFACE_PORT \
+varnishd -a $LISTEN_ADDRESS:$LISTEN_PORT \
+  -T $MANAGEMENT_INTERFACE_ADDRESS:$MANAGEMENT_INTERFACE_PORT \
   -Ff /etc/varnish/default.vcl \
   -p feature=+esi_disable_xml_check,+esi_ignore_other_elements \
   -p vsl_reclen=$VSL_RECLEN \
