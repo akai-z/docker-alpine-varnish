@@ -55,3 +55,11 @@ https://github.com/varnishcache/varnish-cache
 
   For more details, check the following link:  
   https://varnish-cache.org/docs/trunk/users-guide/storage-backends.html
+
+## Starting a Docker container
+
+Run in `detached mode`:  
+```docker run -d aka1/alpine-varnish```
+
+For more details, check the following link:  
+https://docs.docker.com/engine/reference/commandline/run/
