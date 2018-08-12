@@ -58,16 +58,20 @@ https://github.com/varnishcache/varnish-cache
 
 ## Starting a Docker container
 
-Run in `detached mode`:  
-```docker run -d aka1/alpine-varnish```
+Run in `detached mode`:
+```
+docker run -d aka1/alpine-varnish
+```
 
 For more details, check the following link:  
 https://docs.docker.com/engine/reference/commandline/run/
 
 ## Starting a Docker container with Docker Compose
 
-Run in `detached mode`:  
-```docker-compose up -d```
+Run in `detached mode`:
+```
+docker-compose up -d
+```
 
 For more details, check the following link:  
 https://docs.docker.com/compose/reference/up/
@@ -76,7 +80,9 @@ For a quick start, check the file [docker-compose.yml.dist](https://github.com/a
 
 ## Building a Docker image
 
-```docker build -t <IMAGE_NAME> <Path/URL to Dockerfile>```
+```
+docker build -t <IMAGE_NAME> <Path/URL to Dockerfile>
+```
 
 For more details, check the following link:  
 https://docs.docker.com/engine/reference/commandline/build/
@@ -108,10 +114,9 @@ docker run -d aka1/alpine-varnish \
   -b localhost:8080
 ```
 
-However, you have to keep in mind that,  
-if you opt to use this approach,  
-all the preset/default parameters that are already used  
-in the image, will not be included.
+However, you have to keep in mind that, if you opt to use this approach,  
+all the preset/default parameters that are already used in the image  
+will not be included.
 
 And you have to make sure that  
 all `varnishd` required parameters are added.
