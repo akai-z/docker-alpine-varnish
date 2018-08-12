@@ -96,3 +96,22 @@ is named `default.vcl.template`.
 
 That would allow environment variables (if used)  
 to be substituted with real values.
+
+## Passing parameters to `varnishd`
+
+If you want to pass parameters to `varnishd`,  
+you could do that by adding them to `docker run` command.
+
+For example:
+```
+docker run -d aka1/alpine-varnish \
+  -b localhost:8080
+```
+
+However, you have to keep in mind that,  
+if you opt to use this approach,  
+all the preset/default parameters that are already used  
+in the image, will not be included.
+
+And you have to make sure that  
+all `varnishd` required parameters are added.
