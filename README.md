@@ -63,3 +63,13 @@ Run in `detached mode`:
 
 For more details, check the following link:  
 https://docs.docker.com/engine/reference/commandline/run/
+
+## Starting a Docker container with Docker Compose
+
+Run in `detached mode`:  
+```docker-compose up -d```
+
+For more details, check the following link:  
+https://docs.docker.com/compose/reference/up/
+
+For a quick start, check the file [docker-compose.yml.dist](https://github.com/akai-z/docker-alpine-varnish/blob/master/docker-compose.yml.dist).
