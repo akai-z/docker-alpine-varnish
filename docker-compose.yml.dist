@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   varnish:
-    image: aka1/alpine-varnish
+    image: aka1/alpine-varnish:latest
     volumes:
       - <PATH_TO_USER_CUSTOM_VCL_FILE>:/etc/varnish/default.vcl.template
     environment:
