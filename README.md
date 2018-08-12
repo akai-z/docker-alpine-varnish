@@ -80,3 +80,19 @@ For a quick start, check the file [docker-compose.yml.dist](https://github.com/a
 
 For more details, check the following link:  
 https://docs.docker.com/engine/reference/commandline/build/
+
+## Using custom VCL file
+
+In most cases,  
+you should use your own custom VCL file with this Docker image.
+
+You could do that by using  
+the `-v` or the `--volume` flag in `docker run` command.  
+(The same applies to Docker Compose)
+
+Make sure that the file name in the second field of flag `-v`  
+(where the file is mounted in the container),  
+is named `default.vcl.template`.
+
+That would allow environment variables (if used)  
+to be substituted with real values.
