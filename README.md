@@ -12,6 +12,10 @@ https://varnish-cache.org/
 https://en.wikipedia.org/wiki/Varnish_(software)  
 https://github.com/varnishcache/varnish-cache
 
+## Varnish Version
+
+`6.0.0`
+
 ## Environment Variables
 
 * `LISTEN_ADDRESS`  
