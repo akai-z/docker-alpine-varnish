@@ -34,5 +34,5 @@ RUN set -x \
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-EXPOSE $LISTEN_PORT
+EXPOSE $LISTEN_PORT $MANAGEMENT_INTERFACE_PORT
 CMD ["varnishd"]
