@@ -40,7 +40,7 @@ https://github.com/varnishcache/varnish-cache
 
 * `BACKEND_DEFAULT_HOST`  
   Can be used in file `default.vcl.template` only.  
-  Default value: `localhost`.
+  Default value: `127.0.0.1`.
 
 * `BACKEND_DEFAULT_PORT`  
   Can be used in file `default.vcl.template` only.  
