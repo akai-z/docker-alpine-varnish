@@ -31,7 +31,7 @@ https://github.com/varnishcache/varnish-cache
 * `MANAGEMENT_INTERFACE_ADDRESS`  
   Management interface address.  
   Used in `varnishd -T <address[:port]>`.  
-  Default value: `localhost`.
+  Value is left empty by default.
 
 * `MANAGEMENT_INTERFACE_PORT`  
   Management interface address port.  
