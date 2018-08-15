@@ -5,9 +5,7 @@ services:
     volumes:
       - <PATH_TO_USER_CUSTOM_VCL_FILE>:/etc/varnish/default.vcl.template
     environment:
-      - LISTEN_ADDRESS=""
       - LISTEN_PORT=8080
-      - MANAGEMENT_INTERFACE_ADDRESS=localhost
       - MANAGEMENT_INTERFACE_PORT=6082
       - BACKEND_DEFAULT_HOST=localhost
       - BACKEND_DEFAULT_PORT=8080
