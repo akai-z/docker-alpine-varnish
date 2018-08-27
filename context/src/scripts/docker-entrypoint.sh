@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eo pipefail
 
 if [ "${1#-}" != "$1" ]; then
   set -- varnishd "$@"
