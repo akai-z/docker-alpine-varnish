@@ -4,11 +4,13 @@ set -eo pipefail
 
 default_run()
 {
-  set_vcl_file
+  local vcl_file="/etc/varnish/default.vcl"
+
+  set_vcl_file $vcl_file
 
   varnishd -a $LISTEN_ADDRESS:$LISTEN_PORT \
     -T $MANAGEMENT_INTERFACE_ADDRESS:$MANAGEMENT_INTERFACE_PORT \
-    -Ff /etc/varnish/default.vcl \
+    -Ff $vcl_file \
     -p feature=+esi_disable_xml_check,+esi_ignore_other_elements \
     -p vsl_reclen=$VSL_RECLEN \
     -p vcc_allow_inline_c=on \
@@ -26,9 +28,11 @@ clean_run()
 
 set_vcl_file()
 {
+  local vcl_file="$1"
+
   envsubst \
-    < /etc/varnish/default.vcl.template \
-    > /etc/varnish/default.vcl
+    < "${vcl_file}.template" \
+    > $vcl_file
 }
 
 main()
