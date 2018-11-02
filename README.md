@@ -1,5 +1,4 @@
-Docker Alpine Varnish
-=====================
+# Docker Alpine Varnish
 
 This is an Alpine Linux based Varnish cache Docker image.
 
