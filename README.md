@@ -7,6 +7,7 @@ https://github.com/akai-z/docker-varnish
 ## Supported tags and respective `Dockerfile` links
 
 * [`6.0.0-alpine, 6.0-alpine, 6-alpine, latest-alpine` (*6.0/Dockerfile*)](6.0/Dockerfile)
+* [`5.2.1-alpine, 5.2-alpine, 5-alpine` (*5.2/Dockerfile*)](5.2/Dockerfile)
 * [`4.1.9-alpine, 4.1-alpine, 4-alpine` (*4.1/Dockerfile*)](4.1/Dockerfile)
 
 ## Authors
