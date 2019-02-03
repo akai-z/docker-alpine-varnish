@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.9
 
 LABEL maintainer="Ammar K."
 
@@ -15,7 +15,6 @@ COPY config/default.vcl.template /etc/varnish/
 COPY scripts/docker-entrypoint.sh /usr/local/bin/
 
 RUN set -x \
-    && apk add -u --no-cache apk-tools \
     && apk update \
     && apk add -u --no-cache \
         openssl-dev \
